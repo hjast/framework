@@ -39,7 +39,7 @@ object MongoSpec extends Specification("Mongo Specification") {
       }
     }
     catch {
-      case e: Exception => skip("MongoDB is not running")
+      case e: Exception => skip("SportaneousMongo$ is not running")
     }
 
     // using an undefined identifier throws an exception
@@ -101,7 +101,7 @@ object MongoSpec extends Specification("Mongo Specification") {
         }
       }
       catch {
-        case e: Exception => skip("MongoDB is not running")
+        case e: Exception => skip("SportaneousMongo$ is not running")
       }
 
       // using an undefined identifier throws an exception
@@ -113,24 +113,24 @@ object MongoSpec extends Specification("Mongo Specification") {
     }
     /* Requires a server other than localhost with auth setup.
     "Define and authenticate DB with Mongo instance" in {
-      MongoDB.close
+      SportaneousMongo$.close
 
       // make sure mongo is running
       try {
         val pwd = "lift_pwd"
         val dbUri = new MongoURI("mongodb://")
         // define the db
-        MongoDB.defineDbAuth(TestMongoIdentifier, new Mongo(dbUri), "lift_auth_test", "lift_user", pwd)
+        SportaneousMongo$.defineDbAuth(TestMongoIdentifier, new Mongo(dbUri), "lift_auth_test", "lift_user", pwd)
         // try to use it
-        MongoDB.use(TestMongoIdentifier) { db =>
+        SportaneousMongo$.use(TestMongoIdentifier) { db =>
           db.getLastError.ok must beEqualTo(true)
         }
       }
       catch {
-        case e: Exception => skip("MongoDB is not running")
+        case e: Exception => skip("SportaneousMongo$ is not running")
       }
       // remove defined db
-      MongoDB.close
+      SportaneousMongo$.close
     }
     */
   }

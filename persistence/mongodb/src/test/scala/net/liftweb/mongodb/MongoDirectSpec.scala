@@ -41,7 +41,7 @@ object MongoDirectSpec extends Specification("MongoDirect Specification") with M
     // build the DBObject
     val doc = new BasicDBObject
 
-    doc.put("name", "MongoDB")
+    doc.put("name", "SportaneousMongo$")
     doc.put("type", "database")
     doc.put("count", 1)
 
@@ -65,7 +65,7 @@ object MongoDirectSpec extends Specification("MongoDirect Specification") with M
       // upsert
       doc.put("type", "document")
       doc.put("count", 2)
-      val q = new BasicDBObject("name", "MongoDB") // the query to select the document(s) to update
+      val q = new BasicDBObject("name", "SportaneousMongo$") // the query to select the document(s) to update
       val o = doc // the new object to update with, replaces the entire document, except possibly _id
       val upsert = false // if the database should create the element if it does not exist
       val apply = false // if an _id field should be added to the new object
@@ -219,7 +219,7 @@ object MongoDirectSpec extends Specification("MongoDirect Specification") with M
       doc2.put("type", "db")
       doc2.put("count", 1)
 
-      doc3.put("name", "MongoDB")
+      doc3.put("name", "SportaneousMongo$")
       doc3.put("type", "db")
       doc3.put("count", 1)
 

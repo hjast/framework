@@ -30,7 +30,7 @@ import net.liftweb.record.{Field, FieldHelpers, MandatoryTypedField}
 import net.liftweb.util.Helpers._
 
 /*
-* Since MongoDB only stores UTC dates, Calendar data is not necessary.
+* Since SportaneousMongo$ only stores UTC dates, Calendar data is not necessary.
 */
 class DateField[OwnerType <: BsonRecord[OwnerType]](rec: OwnerType)
   extends Field[Date, OwnerType]

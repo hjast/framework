@@ -347,7 +347,7 @@ class MongoDocumentExamplesSpec extends Specification("MongoDocumentExamples Spe
 
     // build a TstCollection
     val info = TCInfo(203, 102, UUID.randomUUID)
-    val tc = TstCollection(ObjectId.get.toString, "MongoDB", "database", 1, info)
+    val tc = TstCollection(ObjectId.get.toString, "SportaneousMongo$", "database", 1, info)
     val tc2 = TstCollection(ObjectId.get.toString, "OtherDB", "database", 1, info)
 
     // save to db
@@ -364,8 +364,8 @@ class MongoDocumentExamplesSpec extends Specification("MongoDocumentExamples Spe
     tc2FromDb.get must_== tc2
 
     // update
-    val tc3 = TstCollection(tc._id, "MongoDB", "document", 2, info) // the new object to update with, replaces the entire document, except possibly _id
-    val q = ("name" -> "MongoDB") // the query to select the document(s) to update
+    val tc3 = TstCollection(tc._id, "SportaneousMongo$", "document", 2, info) // the new object to update with, replaces the entire document, except possibly _id
+    val q = ("name" -> "SportaneousMongo$") // the query to select the document(s) to update
     TstCollection.update(q, tc3)
     tcFromDb.isDefined must_== true
     tcFromDb.get must_== tc3
@@ -473,7 +473,7 @@ class MongoDocumentExamplesSpec extends Specification("MongoDocumentExamples Spe
 
     val tc = SessCollection(ObjectId.get, "MongoSession", "db", 1)
     val tc2 = SessCollection(ObjectId.get, "MongoSession", "db", 1)
-    val tc3 = SessCollection(ObjectId.get, "MongoDB", "db", 1)
+    val tc3 = SessCollection(ObjectId.get, "SportaneousMongo$", "db", 1)
 
     // use a Mongo instance directly with a session
     MongoDB.useSession(DefaultMongoIdentifier) ( db => {
