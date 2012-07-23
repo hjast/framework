@@ -36,6 +36,10 @@ object PasswordField {
   def hashpw(in: String): Box[String] =  tryo(BCrypt.hashpw(in, BCrypt.gensalt(logRounds))) 
 }
 
+trait EncryptedField extends TypedField[String] {
+  blowfishEncrypt
+}
+
 trait PasswordTypedField extends TypedField[String] {
   private var invalidMsg : String = ""
   private[record] var validatedValue: Box[String] = valueBox
